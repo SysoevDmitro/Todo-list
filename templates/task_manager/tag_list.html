@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  <h1>Tags List
+  <a href="{% url 'task_manager:tag-create' %}" class="btn btn-primary link-to-page" style="float: right">
+      Add Tag
+    </a></h1>
+
+  {% if tag_list %}
+    <table class="table">
+      <tr>
+        <th style="font-size: 24px">Name</th>
+        <th style="font-size: 24px">Update</th>
+        <th style="font-size: 24px">Delete</th>
+      </tr>
+
+  {% for tag in tag_list %}
+<tr>
+    <th>{{ tag.name }}</th>
+
+  <th><a href="{% url 'task_manager:tag-update' pk=tag.id %}" class="">
+      Update
+    </a></th>
+  <th><a href="{% url 'task_manager:tag-delete' pk=tag.id %}" class="">
+      Delete
+    </a></th>
+</tr>
+
+  {% endfor %}
+    </table>
+  {% else %}
+  <p>There are no Tags</p>
+  {% endif %}
+{% endblock %}

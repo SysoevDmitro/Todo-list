@@ -1,0 +1,11 @@
+.done {
+            color: green;
+            font-weight: bold;
+            margin-left: 10px; /* Adjust as needed */
+        }
+
+.not_done {
+    color: red;
+    font-weight: bold;
+    margin-left: 10px;
+}
